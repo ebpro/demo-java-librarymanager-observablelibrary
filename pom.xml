@@ -2,69 +2,79 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.univtln.bruno.exemple.bibliotheque</groupId>
-    <artifactId>observablebiblio</artifactId>
+    <properties>
+        <!-- Le nom court du projet a utiliser pour github -->
+        <projectShortName>cours-java-librarymanager-observablelibrary</projectShortName>
+        <github.account>emmanuelbruno</github.account>
+        <!-- utln login for nexus (maven and docker ) repository on lsis -->
+        <lsisnexus.login>emmanuel.bruno@univ-tln.fr</lsisnexus.login>
+        <app.main.class>fr.univtln.bruno.exemple.bibliotheque.App</app.main.class>
+    </properties>
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-dptinfoutln-public</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/dptinfoutln/public</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-dptinfoutln-public</id>
+            <name>bintray-plugins</name>
+            <url>https://dl.bintray.com/dptinfoutln/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <parent>
+        <groupId>fr.univtln.bruno.pom</groupId>
+        <artifactId>common-pom</artifactId>
+        <version>0.7.30-dev-174</version>
+    </parent>
+
+    <groupId>fr.univtln.bruno.coursjava.librarymanager</groupId>
+    <artifactId>librarymanager-observablelibrary</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>observablebiblio</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
-                <executions>
-                    <execution>
-                        <id>create-executable-jar</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptorRefs>
-                                <descriptorRef>
-                                    jar-with-dependencies
-                                </descriptorRef>
-                            </descriptorRefs>
-                            <archive>
-                                <manifest>
-                                    <mainClass>fr.univtln.bruno.exemple.bibliotheque.App</mainClass>
-                                </manifest>
-                            </archive>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
+
         <dependency>
-            <groupId>fr.univtln.bruno.exemple.bibliotheque</groupId>
-            <artifactId>bibliojava</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>fr.univtln.bruno.coursjava.librarymanager</groupId>
+            <artifactId>librarymanager-core</artifactId>
+            <version>1.0.0-dev-2</version>
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- Only required to run tests in an IntelliJ IDEA that bundles an older version -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
