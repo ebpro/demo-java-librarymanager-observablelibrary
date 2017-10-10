@@ -1,19 +1,19 @@
-package fr.univtln.bruno.exemple.bibliotheque;
+package fr.univtln.bruno.coursjava.librarymanager;
 
 
-import fr.univtln.bruno.exemple.bibliotheque.emprunts.Empruntable;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.documents.DocumentInconnuException;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.emprunts.EmpruntImpossibleException;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.emprunts.NonEmpruntableException;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.materiels.MaterielInconnuException;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.personnes.AdherentInconnuException;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.personnes.AuteurInconnuException;
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.sauvegarde.SauvegardeException;
-import fr.univtln.bruno.exemple.bibliotheque.fondDocumentaire.Document;
-import fr.univtln.bruno.exemple.bibliotheque.fondDocumentaire.Livre;
-import fr.univtln.bruno.exemple.bibliotheque.matériel.Matériel;
-import fr.univtln.bruno.exemple.bibliotheque.matériel.OrdinateurPortable;
-import fr.univtln.bruno.exemple.bibliotheque.personne.Personne;
+import fr.univtln.bruno.coursjava.librarymanager.emprunts.Empruntable;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.documents.DocumentInconnuException;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.emprunts.EmpruntImpossibleException;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.emprunts.NonEmpruntableException;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.materiels.MaterielInconnuException;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.personnes.AdherentInconnuException;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.personnes.AuteurInconnuException;
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.sauvegarde.SauvegardeException;
+import fr.univtln.bruno.coursjava.librarymanager.fondDocumentaire.Document;
+import fr.univtln.bruno.coursjava.librarymanager.fondDocumentaire.Livre;
+import fr.univtln.bruno.coursjava.librarymanager.matériel.Matériel;
+import fr.univtln.bruno.coursjava.librarymanager.matériel.OrdinateurPortable;
+import fr.univtln.bruno.coursjava.librarymanager.personne.Personne;
 
 import java.io.OutputStream;
 import java.util.Collection;
@@ -207,7 +207,7 @@ public class BibliothequeModele<B extends IBibliotheque> extends Observable impl
      *
      * @param isbn
      * @return
-     * @throws fr.univtln.bruno.exemple.bibliotheque.exceptions.documents.DocumentInconnuException
+     * @throws fr.univtln.bruno.coursjava.librarymanager.exceptions.documents.DocumentInconnuException
      */
     public Document getDocument(String isbn) throws DocumentInconnuException {
         return bibliotheque.getDocument(isbn);
@@ -218,7 +218,7 @@ public class BibliothequeModele<B extends IBibliotheque> extends Observable impl
      *
      * @param id
      * @return
-     * @throws fr.univtln.bruno.exemple.bibliotheque.exceptions.materiels.MaterielInconnuException
+     * @throws fr.univtln.bruno.coursjava.librarymanager.exceptions.materiels.MaterielInconnuException
      */
     public Matériel getMatériel(int id) throws MaterielInconnuException {
         return bibliotheque.getMatériel(id);
@@ -229,7 +229,7 @@ public class BibliothequeModele<B extends IBibliotheque> extends Observable impl
      *
      * @param id
      * @return
-     * @throws fr.univtln.bruno.exemple.bibliotheque.exceptions.personnes.AdherentInconnuException
+     * @throws fr.univtln.bruno.coursjava.librarymanager.exceptions.personnes.AdherentInconnuException
      */
     public IBibliotheque.Adhérent getAdhérent(IPersonne.Id id) throws AdherentInconnuException {
         return bibliotheque.getAdhérent(id);
@@ -240,7 +240,7 @@ public class BibliothequeModele<B extends IBibliotheque> extends Observable impl
      *
      * @param email
      * @return
-     * @throws fr.univtln.bruno.exemple.bibliotheque.exceptions.personnes.AdherentInconnuException
+     * @throws fr.univtln.bruno.coursjava.librarymanager.exceptions.personnes.AdherentInconnuException
      */
     public IBibliotheque.Adhérent getAdhérent(String email) throws AdherentInconnuException {
         return getAdhérent(new Personne.Id(email));
@@ -352,7 +352,7 @@ public class BibliothequeModele<B extends IBibliotheque> extends Observable impl
      * Serialise la bibliotheque dans un fichier.
      *
      * @param filename Le nom du fichier dans lequel sera serialisée la bibliotheque
-     * @throws fr.univtln.bruno.exemple.bibliotheque.exceptions.sauvegarde.SauvegardeException
+     * @throws fr.univtln.bruno.coursjava.librarymanager.exceptions.sauvegarde.SauvegardeException
      */
     public void exporter(String filename) throws SauvegardeException {
         bibliotheque.exporter(filename);
@@ -362,7 +362,7 @@ public class BibliothequeModele<B extends IBibliotheque> extends Observable impl
      * Serialise la bibliotheque dans un flux.
      *
      * @param outputStream le flux de destination
-     * @throws fr.univtln.bruno.exemple.bibliotheque.exceptions.sauvegarde.SauvegardeException
+     * @throws fr.univtln.bruno.coursjava.librarymanager.exceptions.sauvegarde.SauvegardeException
      */
     public void exporter(OutputStream outputStream) throws SauvegardeException {
         bibliotheque.exporter(outputStream);

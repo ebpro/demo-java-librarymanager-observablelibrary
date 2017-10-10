@@ -1,8 +1,9 @@
-package fr.univtln.bruno.exemple.bibliotheque;
+package fr.univtln.bruno.coursjava.librarymanager;
 
-import fr.univtln.bruno.exemple.bibliotheque.exceptions.personnes.AuteurInconnuException;
-import fr.univtln.bruno.exemple.bibliotheque.matériel.OrdinateurPortable;
-import fr.univtln.bruno.exemple.bibliotheque.personne.Personne;
+
+import fr.univtln.bruno.coursjava.librarymanager.exceptions.personnes.AuteurInconnuException;
+import fr.univtln.bruno.coursjava.librarymanager.matériel.OrdinateurPortable;
+import fr.univtln.bruno.coursjava.librarymanager.personne.Personne;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -22,7 +23,7 @@ public class App {
             bibliothèque.addObserver(new Observer() {
                 @Override
                 public void update(Observable o, Object arg) {
-                    System.out.println(((IBibliotheque)o).getNom()+ " -> " + ((BibliothequeModele.Changement)arg));
+                    System.out.println(((IBibliotheque) o).getNom() + " -> " + ((BibliothequeModele.Changement) arg));
                 }
             });
 

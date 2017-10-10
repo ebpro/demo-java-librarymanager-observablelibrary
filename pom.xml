@@ -48,7 +48,7 @@
         <dependency>
             <groupId>fr.univtln.bruno.coursjava.librarymanager</groupId>
             <artifactId>librarymanager-core</artifactId>
-            <version>1.0.0-dev-2</version>
+            <version>1.0.0-dev-3</version>
         </dependency>
 
         <dependency>
