@@ -5,37 +5,12 @@
     <properties>
         <!-- Le nom court du projet a utiliser pour github -->
         <projectShortName>cours-java-librarymanager-observablelibrary</projectShortName>
-        <github.account>emmanuelbruno</github.account>
-        <!-- utln login for nexus (maven and docker ) repository on lsis -->
-        <lsisnexus.login>emmanuel.bruno@univ-tln.fr</lsisnexus.login>
-        <app.main.class>fr.univtln.bruno.exemple.bibliotheque.App</app.main.class>
     </properties>
 
-    <repositories>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-dptinfoutln-public</id>
-            <name>bintray</name>
-            <url>https://dl.bintray.com/dptinfoutln/public</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-dptinfoutln-public</id>
-            <name>bintray-plugins</name>
-            <url>https://dl.bintray.com/dptinfoutln/public</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <parent>
-        <groupId>fr.univtln.bruno.pom</groupId>
-        <artifactId>common-pom</artifactId>
-        <version>0.7.30-dev-174</version>
+        <groupId>fr.univtln.bruno.coursjava.librarymanager</groupId>
+        <artifactId>librarymanager-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>fr.univtln.bruno.coursjava.librarymanager</groupId>
@@ -44,38 +19,10 @@
     <packaging>jar</packaging>
 
     <dependencies>
-
         <dependency>
             <groupId>fr.univtln.bruno.coursjava.librarymanager</groupId>
             <artifactId>librarymanager-core</artifactId>
-            <version>1.0.0-dev-3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- Only required to run tests in an IntelliJ IDEA that bundles an older version -->
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>test</scope>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
